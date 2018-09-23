@@ -40,8 +40,8 @@ button:active {
 
 #display-panel
 {
-    width: 720px;
-    height: 400px;
+	width: 720px;
+	height: 1000px;  
     background-image: linear-gradient(#408c99,#599bb3);
     font-size: 1.5em;
     color: white;

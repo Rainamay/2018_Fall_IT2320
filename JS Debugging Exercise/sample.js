@@ -1,19 +1,69 @@
 function displayFruits()
 {
     document.getElementById("display-panel").innerHTML="";
+    
+    //Find the bug(s) in the code
+    //We've classified fruits into 3 categories
+    //We want all thh fruits to display in their right category
+    //tropical:coconut, orange,grapefruit,pineapple,banana
+    //subtropical:avocado,guava
+    //not tropical:apple, grapes, kiwi, watermelon
 
-    var fruits = ["apple","orange","banana","grapes","watermelon"];
+    var fruits = ["apple","orange","banana","grapes","guava","coconut","grapefruit","kiwi","watermelon","pineapple","avocado"];
+    var displayText="";
 
     for (i=0;i<5;i++)
     {
-            document.getElementById("display-panel").innerHTML+= "<p>"+fruits[i]+"</p>";
-            if (IsTropical(fruits[i]))
-                document.getElementById("display-panel").innerHTML+= " is tropical ";
-            else
-                document.getElementById("display-panel").innerHTML+= " is NOT tropical ";
+        displayText += "<p>"+ fruits[i];    
+        displayText += " is "+ IsTropical(fruits[i]);
+        displayText+="</p>";        
+    }
+    document.getElementById("display-panel").innerHTML=displayText;
 
 }
 
+function IsTropical(fruit)
+{
+    var tropicalMsg;
+
+     switch (fruit){
+        case "apple":
+            tropicalMsg = "not tropical";
+            break;
+        case "banana":
+            tropicalMsg = "tropical";
+            break;
+        case "coconut":
+            tropicalMsg = "tropical";
+        case "grapes":          
+            tropicalMsg = "not tropical";
+            break;
+        case "orange":
+            tropicalMsg = "tropical";           
+        case "papaya":
+            tropicalMsg = "tropical";           
+            break;
+        case "peach":
+            tropicalMsg = "tropical";                          
+        case "guava":      
+            tropicalMsg = "sub tropical";           
+            break;   
+        case "pineapple":      
+            tropicalMsg = "tropical";           
+            break;
+        case "kiwi":
+            tropicalMsg = "tropical";           
+        case "avocado":
+            tropicalMsg = "sub tropical";
+        case "grapefruit":
+            tropicalMsg = "tropical";           
+            break;
+        default:
+            tropicalMsg = "unable to determine fruit type";            
+    }
+   
+    return tropicalMsg;
+}
 function AddNumbers()
 {
     document.getElementById("display-panel").innerHTML="";
@@ -38,8 +88,7 @@ function EvenOrOddCalc()
 
 
 function EvenOrOdd()
-{
-    
+{    
     document.getElementById("display-panel").innerHTML="";
     var evenOdd = [13,4,2,67,94,35,654];
     var even=odd="";
